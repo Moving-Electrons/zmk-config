@@ -47,7 +47,6 @@
                         &kp LCTRL &kp LALT &mo NUM  &kp SPACE      &kp RET  &mo NAVETC  &kp RALT &kp RCTRL
 			>;
 
-			#sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 		windows_layer {
@@ -67,7 +66,6 @@
                         &kp LCTRL &kp LALT &mo NUM  &kp SPACE      &kp RET  &mo NAVETC  &kp RALT &kp RCTRL
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 		numbers_layer {
@@ -87,7 +85,6 @@
                                    &trans    &trans    &trans   &trans           &trans    &trans     &kp N0    &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 		navi_layer {
@@ -107,7 +104,6 @@
                                      &trans       &trans        &trans    &trans      &trans    &trans     &trans    &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 	};
 };
