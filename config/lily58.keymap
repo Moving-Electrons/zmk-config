@@ -10,8 +10,9 @@
 
 #define DEFAULT 0
 #define WIN 1
-#define NUM 2
-#define NAVETC 3
+#define SYMBOLS 2
+#define NUMBERS 3
+#define NAVETC 4
 
 / {
         behaviors {
@@ -33,18 +34,18 @@
 		default_layer {
 		// label to be shown on OLED screen:
         label = " DEFAULT";
-// --------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                                       |  6   |  7    |  8    |  9   |   0   |  BSPC |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                       |  Y   |  U    |  I    |  O   |   P   |   -   |
-// |  GUI  |  A  |  S  |  D   |  F   |  G   |                                       |  H   |  J    |  K    |  L   |   ;   |   '   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |                      |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | CTRL | ALT  | NUM  |  SPACE |                      | ENTER | NAVI | ALT   | CTRL  |
+// ------------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                                           |  6   |  7    |  8    |  9   |   0   |  BSPC |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                           |  Y   |  U    |  I    |  O   |   P   |   -   |
+// |  GUI  |  A  |  S  |  D   |  F   |  G   |                                           |  H   |  J    |  K    |  L   |   ;   |   '   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |                          |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+//                     | CTRL | NUM  | SYMB |  SPACE |                          | ENTER | NAVI | ALT   | CTRL  |
 			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3    &kp N4   &kp N5                           &kp N6      &kp N7   &kp N8    &kp N9  &kp N0   &kp BSPC
-&kp TAB   &kp Q  &kp W  &kp E     &kp R    &kp T                            &kp Y       &kp U    &kp I     &kp O   &kp P    &kp MINUS
-&kp LGUI  &hm LCTRL A &hm LALT S &hm LGUI D &hm LSHFT F &kp G               &kp H &hm RSHFT J &hm RGUI K &hm RALT L &hm RCTRL SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C     &kp V    &kp B    &kp LBKT       &kp RBKT &kp N       &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LCTRL &kp LALT &mo NUM  &kp SPACE      &kp RET  &mo NAVETC  &kp RALT &kp RCTRL
+&kp ESC   &kp N1 &kp N2 &kp N3    &kp N4   &kp N5                               &kp N6      &kp N7   &kp N8    &kp N9  &kp N0   &kp BSPC
+&kp TAB   &kp Q  &kp W  &kp E     &kp R    &kp T                                &kp Y       &kp U    &kp I     &kp O   &kp P    &kp MINUS
+&kp LGUI  &hm LCTRL A &hm LALT S &hm LGUI D &hm LSHFT F  &kp G                   &kp H &hm RSHFT J &hm RGUI K &hm RALT L &hm RCTRL SEMI &kp SQT
+&kp LSHFT &kp Z  &kp X  &kp C     &kp V    &kp B         &kp LBKT       &kp RBKT &kp N       &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp LCTRL &mo NUM  &mo SYMBOLS   &kp SPACE      &kp RET  &mo NAVETC  &kp RALT &kp RCTRL
 			>;
 
 		};
@@ -52,37 +53,57 @@
 		windows_layer {
 		// label to be shown on OLED screen:
         label = " WIN";
-// --------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  1  |  2  |  3   |  4   |  5   |                                       |  6   |  7    |  8    |  9   |   0   |  BSPC |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                       |  Y   |  U    |  I    |  O   |   P   |   -   |
-// |  GUI  |  A  |  S  |  D   |  F   |  G   |                                       |  H   |  J    |  K    |  L   |   ;   |   '   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |                      |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | CTRL | ALT  | NUM  |  SPACE |                      | ENTER | NAVI | ALT   | CTRL  |
+// ------------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |  1  |  2  |  3   |  4   |  5   |                                           |  6   |  7    |  8    |  9   |   0   |  BSPC |
+// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                                           |  Y   |  U    |  I    |  O   |   P   |   -   |
+// |  GUI  |  A  |  S  |  D   |  F   |  G   |                                           |  H   |  J    |  K    |  L   |   ;   |   '   |
+// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |                          |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+//                     | CTRL | NUM  | SYMB |  SPACE |                          | ENTER | NAVI | ALT   | CTRL  |
 			bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3    &kp N4   &kp N5                           &kp N6      &kp N7   &kp N8    &kp N9  &kp N0   &kp BSPC
-&kp TAB   &kp Q  &kp W  &kp E     &kp R    &kp T                            &kp Y       &kp U    &kp I     &kp O   &kp P    &kp MINUS
-&kp LGUI  &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G               &kp H &hm RSHFT J &hm RCTRL K &hm RALT L &hm RGUI SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C     &kp V    &kp B    &kp LBKT       &kp RBKT &kp N       &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                        &kp LCTRL &kp LALT &mo NUM  &kp SPACE      &kp RET  &mo NAVETC  &kp RALT &kp RCTRL
+&kp ESC   &kp N1 &kp N2 &kp N3    &kp N4   &kp N5                            &kp N6      &kp N7   &kp N8    &kp N9  &kp N0   &kp BSPC
+&kp TAB   &kp Q  &kp W  &kp E     &kp R    &kp T                             &kp Y       &kp U    &kp I     &kp O   &kp P    &kp MINUS
+&kp LGUI  &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F  &kp G               &kp H &hm RSHFT J &hm RCTRL K &hm RALT L &hm RGUI SEMI &kp SQT
+&kp LSHFT &kp Z  &kp X  &kp C     &kp V    &kp B         &kp LBKT       &kp RBKT &kp N       &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+                        &kp LCTRL &mo NUM  &mo SYMBOLS   &kp SPACE      &kp RET  &mo NAVETC  &kp RALT &kp RCTRL
 			>;
 
 		};
 
+		symbols_layer {
+		// label to be shown on OLED screen:
+        label = " SYMBOLS";
+// ------------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |     |     |      |      |      |                                           |      |       |       |      |       |  DEL  |
+// |  CAPS |  !  |  @  |  #   |  $   |  %   |                                           |  ^   |  &    |  *    |  (   |   )   |       |
+// | PSCRN |  ~  |     |      |      |      |                                           |  =   |       |  {    |  }   |  "|"  |   -   |
+// |       |  `  |     |      |      |      |   "["  |                          |  "]"  |  _   |       |  [    |  ]   |   \   |   +   |
+//                     |      | NUM  | SYMB |  SPACE |                          | ENTER | NAVI |       |       |
+			bindings = <
+&kp ESC   &trans    &trans  &trans    &trans    &trans                              &trans      &trans    &trans           &trans   &trans   &kp DEL
+&kp CAPS  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT                           &kp CARET   &kp AMPS  &kp KP_MULTIPLY  &kp LPAR &kp RPAR &trans
+&kp PSCRN &kp TILDE &trans  &trans    &trans    &trans                              &kp EQUAL   &trans    &kp LBRC         &kp RBRC &kp PIPE &kp MINUS
+&trans    &kp GRAVE &trans  &trans    &trans    &trans     &kp LBKT       &kp RBKT  &kp UNDER   &trans    &kp LBKT         &kp RBKT &kp BSLH &kp PLUS
+                           &trans &mo NUM  &mo SYMBOLS     &kp SPACE      &kp RET   &mo NAVETC  &trans    &trans
+			>;
+
+		};
+
+
 		numbers_layer {
 		// label to be shown on OLED screen:
         label = " NUMBERS";
-// ----------------------------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |     |              |         |          |        |                        |       |            |        |      |                 | DEL   |
-// |       |     |       F7     |     F8  |    F9    |        |                        |       |      7     |  8     |  9   |    \            |   -   |
-// |       |  ~  |       F4     |     F5  |    F6    |        |                        |  =    |      4     |  5     |  6   |    *            |   +   |
-// |       |  `  |       F1     |     F2  |    F3    |  CAPS  |        |       |       |  .    |      1     |  2     |  3   |    /            |       |
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// |  ESC  |     |              |         |          |        |                        |       |            |        |      |              | BKSP  |
+// |       |     |       F7     |     F8  |    F9    |   F10  |                        |       |      7     |  8     |  9   |              |       |
+// |       |     |       F4     |     F5  |    F6    |   F11  |                        |  =    |      4     |  5     |  6   |    *         |   -   |
+// |       |     |       F1     |     F2  |    F3    |   F12  |        |       |       |  .    |      1     |  2     |  3   |    /         |   +   |
 //                              |         |          |        |        |       |       |       |      0     |        |
 			bindings   = <
-&kp ESC    &trans       &trans     &trans    &trans    &trans                              &trans     &trans    &trans    &trans   &trans           &kp DEL
-&trans     &trans       &kp F7     &kp F8    &kp F9    &trans                              &trans     &kp N7    &kp N8    &kp N9   &kp BSLH         &kp MINUS
-&kp GRAVE  &kp TILDE    &kp F4     &kp F5    &kp F6    &trans                              &kp EQUAL  &kp N4    &kp N5    &kp N6   &kp KP_MULTIPLY  &kp PLUS
-&trans     &kp GRAVE    &kp F1     &kp F2    &kp F3    &kp CAPS &trans           &trans    &kp DOT    &kp N1    &kp N2    &kp N3   &kp FSLH         &trans
-                                   &trans    &trans    &trans   &trans           &trans    &trans     &kp N0    &trans
+&kp ESC  &trans    &trans     &trans    &trans    &trans                                  &trans     &trans    &trans    &trans   &trans           &kp BSPC
+&trans   &trans    &kp F7     &kp F8    &kp F9    &kp F10                                 &trans     &kp N7    &kp N8    &kp N9   &trans           &trans
+&trans   &trans    &kp F4     &kp F5    &kp F6    &kp F11                                 &kp EQUAL  &kp N4    &kp N5    &kp N6   &kp KP_MULTIPLY  &kp MINUS
+&trans   &trans    &kp F1     &kp F2    &kp F3    &kp F12   &trans               &trans   &kp DOT    &kp N1    &kp N2    &kp N3   &kp FSLH         &kp PLUS
+                              &trans    &trans    &trans    &trans               &trans   &trans     &kp N0    &trans
 			>;
 
 		};
@@ -92,15 +113,15 @@
         label = " NAVI";
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
 // |       |BT_SEL 0   |BT_SEL 1     |BT_SEL 2|    BT_SEL 3|           |                      |          |         |         |         |        |  DEL  |
-// |       |           |             |        |            |           |                      |  PG_UP   |         |   UP    |         |  HOME  |       |
-// |       |           |Vol-         | MUTE   |     Vol+   |           |                      |  PG_DN   |  LEFT   |  DOWN   |   RIGHT |  END   |       |
-// |BT_CLR |           |             |        |            |  tog WIN  |        |     |       |          |         |         |         |        |       |
+// |       |           |             |        |            |           |                      |  PG_UP   |         |   UP    |         |        |       |
+// |       |           |Vol-         | MUTE   |     Vol+   |           |                      |  PG_DN   |  LEFT   |  DOWN   |   RIGHT |        |       |
+// |BT_CLR |           |             |        |            |  tog WIN  |        |     |       |          |  HOME   |         |         |  END   |       |
 //                                   |        |            |           |        |     |       |          |         |         | 
 			bindings = <
 &trans     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &trans                          &trans     &trans    &trans    &trans    &trans   &kp DEL
-&trans     &trans       &trans       &trans       &trans        &trans                          &kp PG_UP  &trans    &kp UP    &trans    &kp HOME &trans
-&trans     &trans       &kp C_VOL_DN &kp K_MUTE   &kp C_VOL_UP  &trans                          &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT &kp END  &trans
-&bt BT_CLR &trans       &trans       &trans       &trans        &tog WIN  &trans      &trans    &trans     &trans    &trans    &trans    &trans   &trans
+&trans     &trans       &trans       &trans       &trans        &trans                          &kp PG_UP  &trans    &kp UP    &trans    &trans   &trans
+&trans     &trans       &kp C_VOL_DN &kp K_MUTE   &kp C_VOL_UP  &trans                          &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT &trans   &trans
+&bt BT_CLR &trans       &trans       &trans       &trans        &tog WIN  &trans      &trans    &trans     &kp HOME  &trans    &trans    &kp END  &trans
                                      &trans       &trans        &trans    &trans      &trans    &trans     &trans    &trans
 			>;
 

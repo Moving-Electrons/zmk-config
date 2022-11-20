@@ -34,27 +34,27 @@
                 default_layer {
                 // label to be shown on OLED screen:
                 label = " DEFAULT";
-// -----------------------------------------------------------------------------------------
-// | ESC  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | TAB  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
-//                    | NUM | SYMB| SPC |   | ENT | NAVETC  | CTRL |
+// ----------------------------------------------------------------------------------------------------------------
+// | ESC  |  Q  |  W  |  E  |  R  |  T  |                                   |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | TAB  |  A  |  S  |  D  |  F  |  G  |                                   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |                                   |  N  |  M   |  ,  |  .  |  /  | SHFT |
+//                    | NUM | SYMB| SPC |                                   | ENT | NAVETC  | CTRL |
                         bindings = <
-   &kp ESC   &kp Q &kp W &kp E &kp R &kp T                           &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   &kp ESC   &kp Q &kp W &kp E &kp R &kp T                           &kp Y   &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp TAB   &hm LCTRL A &hm LALT S &hm LGUI D &hm LSHFT F &kp G     &kp H &hm RSHFT J &hm RGUI K &hm RALT L &hm RCTRL SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                           &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
-                  &mo NUMBERS &mo SYMBOLS &kp SPACE                  &kp RET &mo NAVETC &kp RCTRL
+   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                           &kp N   &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+             &mo NUMBERS &mo SYMBOLS &kp SPACE                       &kp RET &mo NAVETC &kp RCTRL
                         >;
                 };
 
                 windows_layer {
                 // label to be shown on OLED screen:
                 label = " WIN";
-// -----------------------------------------------------------------------------------------
-// | ESC  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | TAB  |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | SHFT |
-//                    | NUM | SYMB| SPC |   | ENT | NAVETC  | CTRL |
+// ---------------------------------------------------------------------------------------------------------
+// | ESC  |  Q  |  W  |  E  |  R  |  T  |                            |  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | TAB  |  A  |  S  |  D  |  F  |  G  |                            |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | SHFT |  Z  |  X  |  C  |  V  |  B  |                            |  N  |  M   |  ,  |  .  |  /  | SHFT |
+//                    | NUM | SYMB| SPC |                            | ENT | NAVETC  | CTRL |
                         bindings = <
    &kp ESC   &kp Q &kp W &kp E &kp R &kp T                           &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp TAB   &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G     &kp H &hm RSHFT J &hm RCTRL K &hm RALT L &hm RGUI SEMI &kp SQT
@@ -66,48 +66,48 @@
                 symbols_layer {
                 // label to be shown on OLED screen:
                 label = " SYMBOLS";
-// -----------------------------------------------------------------------------------------
-// |      |  !  |   @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | DEL  |
-// | CAPS |  ~  |      |     |     |     |   |  =  |     |  {  |  }  | "|" |  -   |
-// | SHFT |  `  |      |     |     |     |   |  _  |     |  [  |  ]  |  \  |  +   |
-//                     |     |     | SPC |   | ENT |     | ALT |
+// ----------------------------------------------------------------------------------------------------------
+// |      |  !  |   @  |  #  |  $  |  %  |                             |  ^  |  &  |  *  |  (  |  )  | DEL  |
+// | CAPS |  ~  |      |     |     |     |                             |  =  |     |  {  |  }  | "|" |  -   |
+// | SHFT |  `  |      |     |     |     |                             |  _  |     |  [  |  ]  |  \  |  +   |
+//                     |     |     | SPC |                             | ENT |     | ALT |
                         bindings = <
-   &trans    &kp EXCL  &kp AT   &kp HASH  &kp DLLR  &kp PRCNT      &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp DEL
-   &kp CAPS  &kp TILDE &trans   &trans    &trans    &trans         &kp EQUAL &trans    &kp LBRC        &kp RBRC &kp PIPE &kp MINUS
-   &kp LSHFT &kp GRAVE &trans   &trans    &trans    &trans         &kp UNDER &trans    &kp LBKT        &kp RBKT &kp BSLH &kp PLUS
-                                &trans    &trans    &kp SPACE      &kp RET &trans &kp RALT
+   &trans    &kp EXCL  &kp AT   &kp HASH  &kp DLLR  &kp PRCNT        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp DEL
+   &kp CAPS  &kp TILDE &trans   &trans    &trans    &trans           &kp EQUAL &trans    &kp LBRC        &kp RBRC &kp PIPE &kp MINUS
+   &kp LSHFT &kp GRAVE &trans   &trans    &trans    &trans           &kp UNDER &trans    &kp LBKT        &kp RBKT &kp BSLH &kp PLUS
+                                &trans    &trans    &kp SPACE        &kp RET &trans &kp RALT
                         >;
                 };
 
                 numbers_layer {
                 // label to be shown on OLED screen:
                 label = " NUMBERS";
-// -----------------------------------------------------------------------------------------
-// | ESC |      |  F7  |  F8   |  F9   |  F10  |   |       |  7  |  8  |  9  |     | BKSP|
-// |     |      |  F4  |  F5   |  F6   |  F11  |   |   =   |  4  |  5  |  6  |  *  |  -  |
-// |     |      |  F1  |  F2   |  F3   |  F12  |   |   .   |  1  |  2  |  3  |  /  |  +  |
-//                     | trans | trans | trans |   | trans |     |  0  |
+// -------------------------------------------------------------------------------------------------------
+// | ESC |      |  F7  |  F8   |  F9   |  F10  |                   |       |  7  |  8  |  9  |     | BKSP|
+// |     |      |  F4  |  F5   |  F6   |  F11  |                   |   =   |  4  |  5  |  6  |  *  |  -  |
+// |     |      |  F1  |  F2   |  F3   |  F12  |                   |   .   |  1  |  2  |  3  |  /  |  +  |
+//                     | trans | trans | trans |                   | trans |     |  0  |
                         bindings = <
-   &kp ESC  &trans &kp F7 &kp F8 &kp F9 &kp F10       &trans    &kp N7 &kp N8 &kp N9 &trans          &kp BSPC
-   &trans   &trans &kp F4 &kp F5 &kp F6 &kp F11       &kp EQUAL &kp N4 &kp N5 &kp N6 &kp KP_MULTIPLY &kp MINUS
-   &trans   &trans &kp F1 &kp F2 &kp F3 &kp F12       &kp DOT   &kp N1 &kp N2 &kp N3 &kp FSLH        &kp PLUS
-                          &trans &trans &trans        &trans &none &kp N0 
+   &kp ESC  &trans &kp F7 &kp F8 &kp F9 &kp F10                    &trans    &kp N7 &kp N8 &kp N9 &trans          &kp BSPC
+   &trans   &trans &kp F4 &kp F5 &kp F6 &kp F11                    &kp EQUAL &kp N4 &kp N5 &kp N6 &kp KP_MULTIPLY &kp MINUS
+   &trans   &trans &kp F1 &kp F2 &kp F3 &kp F12                    &kp DOT   &kp N1 &kp N2 &kp N3 &kp FSLH        &kp PLUS
+                          &trans &trans &trans                     &trans &none &kp N0 
                         >;
                 };
 
                 navi_layer {
                 // label to be shown on OLED screen:
                 label = " NAVI";
-// -----------------------------------------------------------------------------------------
-// |        | BT_SEL 0 | BT_SEL 1 | BT_SEL 2 | BT_SEL 3 |       |    | PG_UP |      | UP   |       |      | DEL|
-// |        |          | C_VOL_DN | K_MUTE   | C_VOL_UP |       |    | PG_DN | LEFT | DOWN | RIGHT |      |    |
-// | BT_CLR |          |          |          |          |tog WIN|    |       | HOME |      |       | END  |    |
-//                     |          | trans    | trans    | trans |    | trans | trans| trans|
+// --------------------------------------------------------------------------------------------------------------------------
+// |        | BT_SEL 0 | BT_SEL 1 | BT_SEL 2 | BT_SEL 3 |       |                 | PG_UP |      | UP   |       |      | DEL|
+// |        |          | C_VOL_DN | K_MUTE   | C_VOL_UP |       |                 | PG_DN | LEFT | DOWN | RIGHT |      |    |
+// | BT_CLR |          |          |          |          |tog WIN|                 |       | HOME |      |       | END  |    |
+//                     |          | trans    | trans    | trans |                 | trans | trans| trans|
                         bindings = <
-   &none      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none       &kp PG_UP  &none     &kp UP   &none     &none     &kp DEL
-   &none      &none        &kp C_VOL_DN &kp K_MUTE   &kp C_VOL_UP &none       &kp PG_DN  &kp LEFT  &kp DOWN &kp RIGHT &none     &none
-   &bt BT_CLR &none        &none        &none        &none        &tog WIN    &none      &kp HOME  &none    &none     &kp END   &none 
-                                                      &trans &trans &trans    &trans &trans &trans 
+   &none      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &none           &kp PG_UP  &none     &kp UP   &none     &none     &kp DEL
+   &none      &none        &kp C_VOL_DN &kp K_MUTE   &kp C_VOL_UP &none           &kp PG_DN  &kp LEFT  &kp DOWN &kp RIGHT &none     &none
+   &bt BT_CLR &none        &none        &none        &none        &tog WIN        &none      &kp HOME  &none    &none     &kp END   &none 
+                                        &trans       &trans      &trans           &trans     &trans    &trans 
                         >;
                 };
 
