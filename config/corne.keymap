@@ -33,7 +33,7 @@
 
                 default_layer {
                 // label to be shown on OLED screen:
-                label = " DEFAULT";
+                label = " Base";
 // ----------------------------------------------------------------------------------------------------------------
 // | ESC  |  Q  |  W  |  E  |  R  |  T  |                                   |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | TAB  |  A  |  S  |  D  |  F  |  G  |                                   |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -49,7 +49,7 @@
 
                 windows_layer {
                 // label to be shown on OLED screen:
-                label = " WIN";
+                label = " Win";
 // ---------------------------------------------------------------------------------------------------------
 // | ESC  |  Q  |  W  |  E  |  R  |  T  |                            |  Y  |  U   |  I  |  O  |  P  | BKSP |
 // | TAB  |  A  |  S  |  D  |  F  |  G  |                            |  H  |  J   |  K  |  L  |  ;  |  '   |
@@ -65,7 +65,7 @@
 
                 symbols_layer {
                 // label to be shown on OLED screen:
-                label = " SYMBOLS";
+                label = " Symbol";
 // ----------------------------------------------------------------------------------------------------------
 // |      |  !  |   @  |  #  |  $  |  %  |                             |  ^  |  &  |  *  |  (  |  )  | DEL  |
 // | CAPS |  ~  |      |     |     |     |                             |  =  |     |  {  |  }  | "|" |  -   |
@@ -81,7 +81,7 @@
 
                 numbers_layer {
                 // label to be shown on OLED screen:
-                label = " NUMBERS";
+                label = " Number";
 // -------------------------------------------------------------------------------------------------------
 // | ESC |      |  F7  |  F8   |  F9   |  F10  |                   |       |  7  |  8  |  9  |     | BKSP|
 // |     |      |  F4  |  F5   |  F6   |  F11  |                   |   =   |  4  |  5  |  6  |  *  |  -  |
@@ -97,7 +97,7 @@
 
                 navi_layer {
                 // label to be shown on OLED screen:
-                label = " NAVI";
+                label = " Nav.";
 // --------------------------------------------------------------------------------------------------------------------------
 // |        | BT_SEL 0 | BT_SEL 1 | BT_SEL 2 | BT_SEL 3 |       |                 | PG_UP |      | UP   |       |      | DEL|
 // |        |          | C_VOL_DN | K_MUTE   | C_VOL_UP |       |                 | PG_DN | LEFT | DOWN | RIGHT |      |    |
