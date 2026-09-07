@@ -77,6 +77,50 @@
                 hold-trigger-on-release;
                 bindings = <&kp>, <&kp>;
             };
+
+            /*
+             * Shift is the exception to require-prior-idle-ms.
+             *
+             * CTRL / ALT / GUI are pressed at a boundary: you stop typing,
+             * then reach for a chord. Requiring 150ms of idle before they
+             * can hold is exactly right.
+             *
+             * Shift is the opposite. It is used mid-flow, in the middle of
+             * a sentence, to capitalise one letter -- and the previous key
+             * (usually a space) was pressed well inside 150ms. So the idle
+             * guard fires precisely when you need the hold, which is why
+             * this keymap used to emit "fi" instead of "I".
+             *
+             * These two behaviours are identical to the ones above except
+             * for a much shorter idle requirement: short enough that a fast
+             * in-word roll still taps, long enough that a deliberate
+             * capital after a space still holds.
+             */
+            hsl: homerow_shift_left {
+                compatible = "zmk,behavior-hold-tap";
+                display-name = "Home Row Shift Left";
+                #binding-cells = <2>;
+                flavor = "balanced";
+                tapping-term-ms = <280>;
+                quick-tap-ms = <175>;
+                require-prior-idle-ms = <80>;
+                hold-trigger-key-positions = <KEYS_R THUMBS>;
+                hold-trigger-on-release;
+                bindings = <&kp>, <&kp>;
+            };
+
+            hsr: homerow_shift_right {
+                compatible = "zmk,behavior-hold-tap";
+                display-name = "Home Row Shift Right";
+                #binding-cells = <2>;
+                flavor = "balanced";
+                tapping-term-ms = <280>;
+                quick-tap-ms = <175>;
+                require-prior-idle-ms = <80>;
+                hold-trigger-key-positions = <KEYS_L THUMBS>;
+                hold-trigger-on-release;
+                bindings = <&kp>, <&kp>;
+            };
         };
 };
 
@@ -94,7 +138,7 @@
 //                    | NUM | SYMB| SPC |                                   | ENT | NAVETC  | CTRL |
                         bindings = <
    &kp ESC   &kp Q &kp W &kp E &kp R &kp T                            &kp Y   &kp U   &kp I     &kp O    &kp P     &kp BSPC
-   &kp TAB   &hml LCTRL A &hml LALT S &hml LGUI D &hml LSHFT F &kp G  &kp H &hmr RSHFT J &hmr RGUI K &hmr RALT L &hmr RCTRL SEMI &kp SQT
+   &kp TAB   &hml LCTRL A &hml LALT S &hml LGUI D &hsl LSHFT F &kp G  &kp H &hsr RSHFT J &hmr RGUI K &hmr RALT L &hmr RCTRL SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                            &kp N   &kp M   &kp COMMA &kp DOT  &kp FSLH  &kp RSHFT
              &mo NUMBERS &mo SYMBOLS &kp SPACE                        &kp RET &mo NAVETC &kp RCTRL
                         >;
@@ -110,7 +154,7 @@
 //                    | NUM | SYMB| SPC |                            | ENT | NAVETC  | CTRL |
                         bindings = <
    &kp ESC   &kp Q &kp W &kp E &kp R &kp T                            &kp Y &kp U   &kp I     &kp O    &kp P     &kp BSPC
-   &kp TAB   &hml LGUI A &hml LALT S &hml LCTRL D &hml LSHFT F &kp G  &kp H &hmr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI &kp SQT
+   &kp TAB   &hml LGUI A &hml LALT S &hml LCTRL D &hsl LSHFT F &kp G  &kp H &hsr RSHFT J &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                            &kp N &kp M   &kp COMMA &kp DOT  &kp FSLH  &kp RSHFT
                   &mo NUMBERS &mo SYMBOLS &kp SPACE                   &kp RET &mo NAVETC &kp RCTRL
                         >;
