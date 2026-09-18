@@ -81,6 +81,23 @@
         };
 };
 
+/*
+ * The outer pinky SHIFT keys are sticky (&sk), not plain &kp.
+ *
+ * Tap and release one and shift is armed: the next key pressed comes out
+ * shifted and shift clears itself. Because the two presses never overlap
+ * there is no hold-versus-tap decision to lose, which is the failure that
+ * pushed shift off the home row in the first place.
+ *
+ * Holding one still works exactly like an ordinary shift -- everything
+ * typed while it is down is shifted -- so this only adds a way to use
+ * them, it does not take one away.
+ *
+ * Stock &sk properties: release-after-ms = 1000 (disarms itself if you
+ * hesitate) and ignore-modifiers (arming shift then holding CTRL gives
+ * CTRL+SHIFT rather than the shift being swallowed).
+ */
+
 / {
         keymap {
                 compatible = "zmk,keymap";
@@ -96,7 +113,7 @@
                         bindings = <
    &kp ESC   &kp Q &kp W &kp E &kp R &kp T                            &kp Y   &kp U   &kp I     &kp O    &kp P     &kp BSPC
    &kp TAB   &hml LCTRL A &hml LALT S &hml LGUI D &kp F        &kp G  &kp H &kp J        &hmr RGUI K &hmr RALT L &hmr RCTRL SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                            &kp N   &kp M   &kp COMMA &kp DOT  &kp FSLH  &kp RSHFT
+   &sk LSHFT &kp Z &kp X &kp C &kp V &kp B                            &kp N   &kp M   &kp COMMA &kp DOT  &kp FSLH  &sk RSHFT
              &mo NUMBERS &mo SYMBOLS &kp SPACE                        &kp RET &mo NAVETC &caps_word
                         >;
                 };
@@ -112,7 +129,7 @@
                         bindings = <
    &kp ESC   &kp Q &kp W &kp E &kp R &kp T                            &kp Y &kp U   &kp I     &kp O    &kp P     &kp BSPC
    &kp TAB   &hml LGUI A &hml LALT S &hml LCTRL D &kp F        &kp G  &kp H &kp J        &hmr RCTRL K &hmr RALT L &hmr RGUI SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B                            &kp N &kp M   &kp COMMA &kp DOT  &kp FSLH  &kp RSHFT
+   &sk LSHFT &kp Z &kp X &kp C &kp V &kp B                            &kp N &kp M   &kp COMMA &kp DOT  &kp FSLH  &sk RSHFT
                   &mo NUMBERS &mo SYMBOLS &kp SPACE                   &kp RET &mo NAVETC &caps_word
                         >;
                 };
@@ -128,7 +145,7 @@
                         bindings = <
    &trans    &kp EXCL  &kp AT   &kp HASH  &kp DLLR  &kp PRCNT        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp DEL
    &kp CAPS  &kp TILDE &trans   &trans    &trans    &trans           &kp EQUAL &trans    &kp LBRC        &kp RBRC &kp PIPE &kp MINUS
-   &kp LSHFT &kp GRAVE &trans   &trans    &trans    &trans           &kp UNDER &trans    &kp LBKT        &kp RBKT &kp BSLH &kp PLUS
+   &sk LSHFT &kp GRAVE &trans   &trans    &trans    &trans           &kp UNDER &trans    &kp LBKT        &kp RBKT &kp BSLH &kp PLUS
                                 &trans    &trans    &kp SPACE        &kp RET &trans &kp RALT
                         >;
                 };
